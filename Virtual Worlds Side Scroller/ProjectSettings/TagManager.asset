@@ -12,6 +12,7 @@ TagManager:
   - RedKey
   - Floor
   - BadStuff
+  - CheckPoint
   layers:
   - Default
   - TransparentFX
