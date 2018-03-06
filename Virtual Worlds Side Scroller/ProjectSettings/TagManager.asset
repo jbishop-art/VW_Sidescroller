@@ -11,6 +11,7 @@ TagManager:
   - RedDoor
   - RedKey
   - Floor
+  - BadStuff
   layers:
   - Default
   - TransparentFX
