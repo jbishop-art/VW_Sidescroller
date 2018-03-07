@@ -23,6 +23,10 @@ public class PlayerKeyTracker : MonoBehaviour
 	void Update () 
 	{
 		
+		if (BlueKey == true)
+		{
+			//gameObject.Find("BlueKeyNotice").GetComponent<Renderer>().enabled = true;
+		}
 		
 
 	}
