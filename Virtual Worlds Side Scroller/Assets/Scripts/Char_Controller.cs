@@ -85,26 +85,39 @@ public class Char_Controller : MonoBehaviour
  
         void Update()
         {
-                //Handle inputs
-                if(Input.GetKey(KeyCode.A)) 
-                        input.x = -1;
-                else if(Input.GetKey(KeyCode.LeftArrow))
-                        input.x = -1;
-                else if(Input.GetKey(KeyCode.D))
-                        input.x = 1;
-                else if(Input.GetKey(KeyCode.RightArrow))
-                        input.x = 1;
-                else
-                        input.x = 0;
 
-                if(Input.GetKeyDown(KeyCode.Space))
-                        input.y = 1;
+            //Handle inputs
+            if (Input.GetKey(KeyCode.A))
+                input.x = -1;
+            else if (Input.GetKey(KeyCode.LeftArrow))
+                input.x = -1;
+            else if (Input.GetKey(KeyCode.D))
+                input.x = 1;
+            else if (Input.GetKey(KeyCode.RightArrow))
+                input.x = 1;
+            else
+                input.x = 0;
+
+            if(Input.GetKeyDown(KeyCode.Space)) 
+                input.y = 1;
  
-                //Reverse player if going different direction
-                transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, (input.x == 0) ? transform.localEulerAngles.y : (input.x + 1) * 90, transform.localEulerAngles.z);
-        }
- 
-        void FixedUpdate()
+         
+
+            //if (Input.GetAxis("Horizontal") < 0)
+            //    input.x = -1;
+            //else if (Input.GetAxis("Horizontal") > 0)
+            //    input.x = 1;
+
+            //if (Input.GetButtonDown("Jump"))
+            //    input.y = 1;
+
+            //Reverse player if going different direction
+            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, (input.x == 0) ? transform.localEulerAngles.y : (input.x + 1) * 90, transform.localEulerAngles.z);
+
+
+    }
+
+    void FixedUpdate()
         {
                 GetComponent<Rigidbody2D>().AddForce(new Vector2(((input.x * speed) - GetComponent<Rigidbody2D>().velocity.x) * (groundState.isGround() ? accel : airAccel), 0)); //Move player.
                 GetComponent<Rigidbody2D>().velocity = new Vector2((input.x == 0 && groundState.isGround()) ? 0 : GetComponent<Rigidbody2D>().velocity.x, (input.y == 1 && groundState.isTouching()) ? jump : GetComponent<Rigidbody2D>().velocity.y); //Stop player if input.x is 0 (and grounded) and jump if input.y is 1
