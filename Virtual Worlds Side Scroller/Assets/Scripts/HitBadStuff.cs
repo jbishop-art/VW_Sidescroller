@@ -30,12 +30,18 @@ public class HitBadStuff : MonoBehaviour
             spawnPoint = col.gameObject.transform.position;
 
             Destroy(col.gameObject);
+
+            GameObject.Find("CheckPointSound").GetComponent<AudioSource>().enabled = false;
+			GameObject.Find("CheckPointSound").GetComponent<AudioSource>().enabled = true;
         }
 
         
 		//Detects if player touches BadStuff.
 		if(col.gameObject.tag == "BadStuff")
 		{
+
+            GameObject.Find("DeathSound").GetComponent<AudioSource>().enabled = false;
+			GameObject.Find("DeathSound").GetComponent<AudioSource>().enabled = true;
 
             GameObject.Find("Player(Clone)").transform.position = spawnPoint;
 

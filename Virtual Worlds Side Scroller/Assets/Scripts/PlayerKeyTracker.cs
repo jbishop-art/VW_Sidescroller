@@ -14,7 +14,7 @@ public class PlayerKeyTracker : MonoBehaviour
 	void Start () 
 	{
 
-
+		
 		
 		
 	}
@@ -25,7 +25,30 @@ public class PlayerKeyTracker : MonoBehaviour
 		
 		if (BlueKey == true)
 		{
-			//gameObject.Find("BlueKeyNotice").GetComponent<Renderer>().enabled = true;
+			GameObject.Find("BlueKeyNotice").GetComponent<Renderer>().enabled = true;
+			
+		}
+		else
+		{
+			GameObject.Find("BlueKeyNotice").GetComponent<Renderer>().enabled = false;
+		}
+
+		if (RedKey == true)
+		{
+			GameObject.Find("MagentaKeyNotice").GetComponent<Renderer>().enabled = true;
+		}
+		else
+		{
+			GameObject.Find("MagentaKeyNotice").GetComponent<Renderer>().enabled = false;
+		}
+
+		if (GreenKey == true)
+		{
+			GameObject.Find("GreenKeyNotice").GetComponent<Renderer>().enabled = true;
+		}
+		else
+		{
+			GameObject.Find("GreenKeyNotice").GetComponent<Renderer>().enabled = false;
 		}
 		
 
@@ -38,6 +61,9 @@ public class PlayerKeyTracker : MonoBehaviour
 		{
 			BlueKey = true;
 			Destroy (col.gameObject);
+
+			GameObject.Find("KeySound").GetComponent<AudioSource>().enabled = false;
+			GameObject.Find("KeySound").GetComponent<AudioSource>().enabled = true;
 			
 		}
 
@@ -46,6 +72,10 @@ public class PlayerKeyTracker : MonoBehaviour
 		{
 			BlueKey = false;
 			Destroy (col.gameObject);
+
+			GameObject.Find("DoorOpenSound").GetComponent<AudioSource>().enabled = false;
+			GameObject.Find("DoorOpenSound").GetComponent<AudioSource>().enabled = true;
+			
 		}
 
 		//Detects if player picks up Red Key.
@@ -53,6 +83,9 @@ public class PlayerKeyTracker : MonoBehaviour
 		{
 			RedKey = true;
 			Destroy (col.gameObject);
+
+			GameObject.Find("KeySound").GetComponent<AudioSource>().enabled = false;
+			GameObject.Find("KeySound").GetComponent<AudioSource>().enabled = true;
 			
 		}
 
@@ -61,6 +94,9 @@ public class PlayerKeyTracker : MonoBehaviour
 		{
 			RedKey = false;
 			Destroy (col.gameObject);
+
+			GameObject.Find("DoorOpenSound").GetComponent<AudioSource>().enabled = false;
+			GameObject.Find("DoorOpenSound").GetComponent<AudioSource>().enabled = true;
 		}
 
 		//Detects if player picks up Green Key.
@@ -68,6 +104,9 @@ public class PlayerKeyTracker : MonoBehaviour
 		{
 			GreenKey = true;
 			Destroy (col.gameObject);
+
+			GameObject.Find("KeySound").GetComponent<AudioSource>().enabled = false;
+			GameObject.Find("KeySound").GetComponent<AudioSource>().enabled = true;
 			
 		}
 
@@ -76,6 +115,9 @@ public class PlayerKeyTracker : MonoBehaviour
 		{
 			GreenKey = false;
 			Destroy (col.gameObject);
+
+			GameObject.Find("DoorOpenSound").GetComponent<AudioSource>().enabled = false;
+			GameObject.Find("DoorOpenSound").GetComponent<AudioSource>().enabled = true;
 		}
 	}
 

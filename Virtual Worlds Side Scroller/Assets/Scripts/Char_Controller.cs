@@ -79,6 +79,8 @@ public class Char_Controller : MonoBehaviour
         {
                 //Create an object to check if player is grounded or touching wall
                 groundState = new GroundState(transform.gameObject);
+
+                
         }
  
         private Vector2 input;
@@ -100,6 +102,10 @@ public class Char_Controller : MonoBehaviour
 
             if(Input.GetKeyDown(KeyCode.Space)) 
                 input.y = 1;
+                
+		//GameObject.Find("JumpSound").GetComponent<AudioSource>().enabled = false;
+                //GameObject.Find("JumpSound").GetComponent<AudioSource>().enabled = true;
+        
  
          
 
