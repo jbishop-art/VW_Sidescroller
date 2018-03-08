@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
  
 public class Char_Controller : MonoBehaviour
 {      
@@ -90,23 +91,26 @@ public class Char_Controller : MonoBehaviour
         void Update()
         {
 
-            //Handle inputs
-            if (Input.GetKey(KeyCode.A))
-                input.x = -1;
-            else if (Input.GetKey(KeyCode.LeftArrow))
-                input.x = -1;
-            else if (Input.GetKey(KeyCode.D))
-                input.x = 1;
-            else if (Input.GetKey(KeyCode.RightArrow))
-                input.x = 1;
-            else
-                input.x = 0;
+                //Handle inputs
+                if (Input.GetKey(KeyCode.A))
+                        input.x = -1;
+                else if (Input.GetKey(KeyCode.LeftArrow))
+                        input.x = -1;
+                else if (Input.GetKey(KeyCode.D))
+                        input.x = 1;
+                else if (Input.GetKey(KeyCode.RightArrow))
+                        input.x = 1;
+                else
+                        input.x = 0;
 
-            if(Input.GetKeyDown(KeyCode.Space)) 
-                input.y = 1;
+                if(Input.GetKeyDown(KeyCode.Space)) 
+                        input.y = 1;
+
+                if(Input.GetKeyDown(KeyCode.R))
+                        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
                 
                 
-            transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, (input.x == 0) ? transform.localEulerAngles.y : (input.x + 1) * 90, transform.localEulerAngles.z);
+                transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, (input.x == 0) ? transform.localEulerAngles.y : (input.x + 1) * 90, transform.localEulerAngles.z);
 
 
         }

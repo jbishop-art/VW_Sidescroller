@@ -59,6 +59,7 @@
      <Compile Include="Assets\Scripts\MapNOTES.cs" />
      <Compile Include="Assets\Scripts\MoveingBadStuff.cs" />
      <Compile Include="Assets\Scripts\PlayerKeyTracker.cs" />
+     <Compile Include="Assets\Scripts\Timer.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>

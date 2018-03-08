@@ -13,6 +13,7 @@ TagManager:
   - Floor
   - BadStuff
   - CheckPoint
+  - EndPoint
   layers:
   - Default
   - TransparentFX

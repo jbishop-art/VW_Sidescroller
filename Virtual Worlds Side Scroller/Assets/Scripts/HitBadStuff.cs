@@ -24,6 +24,15 @@ public class HitBadStuff : MonoBehaviour
 
 	void OnCollisionEnter2D(Collision2D col)
 	{
+
+        //Detects if player touches the end point.
+        if (col.gameObject.tag == "EndPoint")
+        {
+			GameObject.Find("Main Camera").SendMessage("Finnish");
+            Debug.Log("Sent Message to camera timer");
+        }
+
+        
         //Detects if player touches a spawn point.
         if (col.gameObject.tag == "CheckPoint")
         {
