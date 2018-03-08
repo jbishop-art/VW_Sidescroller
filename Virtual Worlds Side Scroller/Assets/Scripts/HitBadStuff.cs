@@ -6,13 +6,14 @@ using UnityEngine;
 public class HitBadStuff : MonoBehaviour
 {
     private Vector3 spawnPoint;
+    private Vector3 playerLoc;
+    public ParticleSystem pDPrefab;
 
 
     // Use this for initialization
     void Start ()
     {
 
-                
 		
 	}
 	
@@ -20,6 +21,8 @@ public class HitBadStuff : MonoBehaviour
 	void Update ()
     {
 		
+        playerLoc = GameObject.Find("Player(Clone)").transform.position;
+
 	}
 
 	void OnCollisionEnter2D(Collision2D col)
@@ -49,8 +52,11 @@ public class HitBadStuff : MonoBehaviour
 		if(col.gameObject.tag == "BadStuff")
 		{
 
+            Instantiate(pDPrefab, playerLoc, Quaternion.identity);
+
             GameObject.Find("DeathSound").GetComponent<AudioSource>().enabled = false;
 			GameObject.Find("DeathSound").GetComponent<AudioSource>().enabled = true;
+            
 
             GameObject.Find("Player(Clone)").transform.position = spawnPoint;
 
