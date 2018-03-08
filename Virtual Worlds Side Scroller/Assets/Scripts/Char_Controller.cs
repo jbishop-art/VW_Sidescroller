@@ -6,6 +6,8 @@ public class Char_Controller : MonoBehaviour
         public class GroundState
         {
                 private GameObject player;
+                
+
                 private float  width;
                 private float height;
                 private float length;
@@ -103,25 +105,11 @@ public class Char_Controller : MonoBehaviour
             if(Input.GetKeyDown(KeyCode.Space)) 
                 input.y = 1;
                 
-		//GameObject.Find("JumpSound").GetComponent<AudioSource>().enabled = false;
-                //GameObject.Find("JumpSound").GetComponent<AudioSource>().enabled = true;
-        
- 
-         
-
-            //if (Input.GetAxis("Horizontal") < 0)
-            //    input.x = -1;
-            //else if (Input.GetAxis("Horizontal") > 0)
-            //    input.x = 1;
-
-            //if (Input.GetButtonDown("Jump"))
-            //    input.y = 1;
-
-            //Reverse player if going different direction
+                
             transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, (input.x == 0) ? transform.localEulerAngles.y : (input.x + 1) * 90, transform.localEulerAngles.z);
 
 
-    }
+        }
 
     void FixedUpdate()
         {

@@ -9,6 +9,8 @@ public class CameraControl : MonoBehaviour
 	private float XPos;
 	private float YPos;
 
+	public GameObject jumpSoundPrefab;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -24,6 +26,13 @@ public class CameraControl : MonoBehaviour
 		YPos = GameObject.Find("Player(Clone)").transform.position.y;
 
 		transform.position = new Vector3(XPos, YPos, ZPos);
+
+		if(Input.GetKeyDown(KeyCode.Space)) 
+		{
+			Debug.Log("JumpSound!!");
+			Instantiate(jumpSoundPrefab, transform.position, Quaternion.identity);
+		}
+			 
 
 	}
 }
