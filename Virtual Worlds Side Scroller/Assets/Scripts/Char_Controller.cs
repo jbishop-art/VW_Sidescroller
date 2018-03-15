@@ -108,6 +108,13 @@ public class Char_Controller : MonoBehaviour
 
                 if(Input.GetKeyDown(KeyCode.R))
                         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+                //if((Input.GetAxis("Horizontal") > 0)
+                //{
+
+                    
+
+                //}
                 
                 
                 transform.localEulerAngles = new Vector3(transform.localEulerAngles.x, (input.x == 0) ? transform.localEulerAngles.y : (input.x + 1) * 90, transform.localEulerAngles.z);

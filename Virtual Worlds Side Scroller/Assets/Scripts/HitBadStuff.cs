@@ -8,13 +8,14 @@ public class HitBadStuff : MonoBehaviour
     private Vector3 spawnPoint;
     private Vector3 playerLoc;
     public ParticleSystem pDPrefab;
+    private bool isDead;
 
 
     // Use this for initialization
     void Start ()
     {
 
-		
+        isDead = false;
 	}
 	
 	// Update is called once per frame
@@ -25,7 +26,20 @@ public class HitBadStuff : MonoBehaviour
 
 	}
 
-	void OnCollisionEnter2D(Collision2D col)
+    IEnumerator Wait()
+    {
+        
+        yield return new WaitForSeconds(0.25f);
+        
+        GameObject.Find("Player(Clone)").transform.position = spawnPoint;
+        isDead = false;
+
+        yield return new WaitForSeconds(1f);
+        GameObject.Find("Main Camera").SendMessage("DeathCount");
+
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
 	{
 
         //Detects if player touches the end point.
@@ -49,16 +63,19 @@ public class HitBadStuff : MonoBehaviour
 
         
 		//Detects if player touches BadStuff.
-		if(col.gameObject.tag == "BadStuff")
+		if(col.gameObject.tag == "BadStuff" && ! isDead)
 		{
 
             Instantiate(pDPrefab, playerLoc, Quaternion.identity);
 
             GameObject.Find("DeathSound").GetComponent<AudioSource>().enabled = false;
 			GameObject.Find("DeathSound").GetComponent<AudioSource>().enabled = true;
-            
 
-            GameObject.Find("Player(Clone)").transform.position = spawnPoint;
+
+            isDead = true;
+            StartCoroutine("Wait");
+
+            //GameObject.Find("Player(Clone)").transform.position = spawnPoint;
 
         }
 
